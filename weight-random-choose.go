@@ -85,3 +85,13 @@ func RandomChoose[T any](slice []T, weights []int) (T, error) {
 	}
 	return x.Random(), nil
 }
+
+// RandomChooseFromTupleSlice 从随机数组中选择一个元素
+func RandomChooseFromTupleSlice[T any](tupleSlice []tuple.Tuple2[T, int]) (T, error) {
+	x, err := NewUseTupleSlice(tupleSlice)
+	if err != nil {
+		var zero T
+		return zero, err
+	}
+	return x.Random(), nil
+}
